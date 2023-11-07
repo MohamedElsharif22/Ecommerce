@@ -1,0 +1,17 @@
+<section id="brands" class="py-3">
+  <div class="container">
+    <h2 class="text-center">Brands</h2>
+    <div class="row row-cols-lg-4 row-cols-md-3 g-3">
+      <div *ngFor="let item of brands" class="col-md">
+        <div class="categorie product rounded overflow-hidden border py-0">
+          <div class="cat-img">
+            <img [src]="item.image" class="img-fluid ratio-4x3 w-100" [alt]="item.name" />
+          </div>
+          <div class="cat-info">
+            <h3 class="text-center py-4 ">{{item.name}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

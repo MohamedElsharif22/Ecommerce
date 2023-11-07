@@ -1,0 +1,40 @@
+  <section *ngIf=" cartItems?.products.length > 0;else emptyCart" id="cart" class="my-3" >
+    <div  class="main-container w-75 mx-auto rounded p-3 pb-0 shadow bg-main-light ">
+
+      <h2 class="h1 text-capitalize">shop cart</h2>
+      <p class="text-main">
+        Total Price: {{cartItems.totalCartPrice | currency:'EGP'}}
+      </p>
+      <!-- Cart Items -->
+      <div class="parent" >
+        <div class="row border-bottom py-3 align-items-center justify-content-center gy-3" *ngFor="let item of cartItems.products">
+          <div class="col-md-1">
+            <img [src]="item.product.imageCover" class="w-100" [alt]='item.product.title'/>
+          </div>
+          <div class="col-md-11 d-flex justify-content-between">
+            <div class="item-info">
+              <h3 class="h6 mt-2">{{item.product.title}}</h3>
+              <p class="text-main mb-0 pb-0">Price: {{item.price | currency:'EGP'}}</p>
+              <button type="button" (click)="deleteItem(item.product._id)" class="btn p-0 text-main"><i class="fas fa-trash me-1"></i>Remove</button>
+            </div>
+            <div class="item-count d-flex align-items-center">
+              <button type="button" (click)="changeCount(item.product._id,item.count - 1 )" class="btn border-success text-main p-2 small">-</button>
+              <span class="mx-2">{{item.count}}</span>
+              <button type="button" (click)="changeCount(item.product._id,item.count + 1)" class="btn border-success text-main p-2 small">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex">
+          <button routerLink="payment" [disabled]="cartItems.products.length < 1" [routerLink]="['/payment', cartItems._id]" class="btn main-btn w-auto my-2 me-auto" type="button">Online Payment
+            <img  src="./assets/images/visa-1.svg" alt="...">
+          </button>
+          <button (click)="clear()" class="btn btn-outline-danger w-auto my-2 ms-auto" type="button">Clear cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #emptyCart>
+        <h2 class=" text-center mt-4">Cart is empty...</h2>
+      </ng-template>

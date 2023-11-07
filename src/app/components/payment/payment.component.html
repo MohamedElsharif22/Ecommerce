@@ -1,0 +1,19 @@
+<section id="Payment" class="pt-5">
+  <div class="container">
+    <form class="bg-body-secondary rounded p-3 shadow" [formGroup]="orderForm" (submit)="handleForm()" >
+      <div class="form-item mb-3">
+        <label class="text-capitalize" for="address">Address Details:</label>
+        <input class="form-control" formControlName="details" type="text" id="address">
+      </div>
+      <div class="form-item mb-3">
+        <label class="text-capitalize" for="phone">phone:</label>
+        <input class="form-control" formControlName="phone" type="tel" id="phone">
+      </div>
+      <div class="form-item mb-3">
+        <label class="text-capitalize" for="city">city:</label>
+        <input class="form-control" formControlName="city" type="text" id="city">
+      </div>
+      <button [disabled]="orderForm.invalid" (click)="handleForm()" class=" main-btn" type="submit">check out</button>
+    </form>
+  </div>
+</section>

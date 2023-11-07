@@ -1,0 +1,139 @@
+<section id="register">
+  <div class="container w-75">
+    <h2>Register Now</h2>
+    <form class="d-flex flex-column" [formGroup]="registerForm" (ngSubmit)="handleForm()">
+      <div class="form-item">
+        <label class="mb-2" for="name">Name:</label>
+        <input
+          class="form-control"
+          formControlName="name"
+          id="name"
+          type="text"
+          placeholder="Enter Your Name"
+        />
+        <div
+          class="alert alert-danger pb-0 mt-2"
+          *ngIf="
+            registerForm.get('name')?.touched &&
+            registerForm.get('name')?.errors
+          "
+        >
+          <p *ngIf="registerForm.get('name')?.getError('required')">
+            Must Enter Your name
+          </p>
+          <p *ngIf="registerForm.get('name')?.getError('pattern')">
+            name mut contain at least 3 chars
+          </p>
+        </div>
+      </div>
+      <div class="form-item mt-3">
+        <label class="mb-2 text-capitalize" for="email">email:</label>
+        <input
+          class="form-control"
+          formControlName="email"
+          id="email"
+          type="email"
+          placeholder="Enter Your email"
+        />
+        <div
+          class="alert alert-danger pb-0 mt-2"
+          *ngIf="
+            registerForm.get('email')?.touched &&
+            registerForm.get('email')?.errors
+          "
+        >
+          <p *ngIf="registerForm.get('email')?.getError('required')">
+            Must Enter Your email
+          </p>
+          <p *ngIf="registerForm.get('email')?.getError('email')">
+            enter a valid email
+          </p>
+        </div>
+      </div>
+      <div class="form-item mt-3">
+        <label class="mb-2 text-capitalize" for="password">password:</label>
+        <input
+          class="form-control"
+          formControlName="password"
+          id="password"
+          type="password"
+          placeholder="Enter Your password"
+        />
+        <div
+          class="alert alert-danger pb-0 mt-2"
+          *ngIf="
+            registerForm.get('password')?.touched &&
+            registerForm.get('password')?.errors
+          "
+        >
+          <p *ngIf="registerForm.get('password')?.getError('required')">
+            Must Enter Your password
+          </p>
+          <p *ngIf="registerForm.get('password')?.getError('pattern')">
+            enter a valid password
+          </p>
+        </div>
+      </div>
+      <div class="form-item mt-3">
+        <label class="mb-2 text-capitalize" for="rePassword">rePassword:</label>
+        <input
+          class="form-control"
+          formControlName="rePassword"
+          id="rePassword"
+          type="password"
+          placeholder="Enter Your rePassword"
+        />
+        <div
+          class="alert alert-danger pb-0 mt-2"
+          *ngIf="
+            registerForm.get('rePassword')?.touched &&
+            registerForm.get('rePassword')?.errors
+          "
+        >
+          <p *ngIf="registerForm.get('rePassword')?.getError('required')">
+            must verify your Password
+          </p>
+          <p *ngIf="registerForm.get('rePassword')?.getError('missMatch')">
+            Password dosn't match
+          </p>
+        </div>
+      </div>
+      <div class="form-item mt-3">
+        <label class="mb-2 text-capitalize" for="phone">phone:</label>
+        <input
+          class="form-control"
+          formControlName="phone"
+          id="phone"
+          type="tel"
+          placeholder="Enter Your phone"
+        />
+        <div
+          class="alert alert-danger pb-0 mt-2"
+          *ngIf="
+            registerForm.get('phone')?.touched &&
+            registerForm.get('phone')?.errors
+          "
+        >
+          <p *ngIf="registerForm.get('phone')?.getError('required')">
+            this field is required
+          </p>
+          <p *ngIf="registerForm.get('phone')?.getError('pattern')">
+            Egyption numbers Only
+          </p>
+        </div>
+      </div>
+      <button
+        [disabled]="registerForm.invalid"
+        class="main-btn mt-3 ms-auto"
+        type="submit"
+      >
+        submit<span *ngIf="isLoading"
+          ><i class="fa-solid fa-spinner fa-spin ms-1"></i
+        ></span>
+      </button>
+      <div *ngIf="errMsg" class="alert alert-danger mt-4">
+        <p class="mb-0">{{errMsg}}</p>
+      </div>
+    </form>
+  </div>
+</section>

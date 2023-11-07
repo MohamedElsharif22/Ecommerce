@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+$main-color: rgb(10, 173, 10);
+$light-color: #f0f3f2;
+$shadow: rgba(10, 173, 10, 0.2) 0px 2px 4px -1px,
+rgba(10, 173, 10, 0.14) 0px 4px 5px 0px,
+rgba(10, 173, 10, 0.12) 0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded",
+sans-serif;
+$rating-color: #ffc908;
+$main-transition: 0.8s;
+
+// section
+// {
+//   padding-block: 50px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   min-width: 90vh;
+// }
+
+body{
+  font-family: $font-family;
+}
+
+.main-active
+{
+  background-color: $main-color !important;
+  color: white !important;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.rating-color {
+  color: $rating-color;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font-sm {
+  font-size: 14px;
+}
+
+.text-main {
+  color: $main-color;
+}
+
+.text-main-light {
+  color: $light-color;
+}
+
+.bg-main {
+  background-color: $main-color !important;
+}
+
+.bg-main-light {
+  background-color: $light-color !important;
+}
+
+.main-btn {
+  border: unset;
+  cursor: pointer;
+  color: #fff !important;
+  background-color: $main-color !important;
+  padding: 4px 8px;
+  transition: background-color $main-transition;
+  border-radius: 5px;
+  &:disabled{
+    background-color: #067a0663 !important;
+    color: #ffffff8e !important;
+    cursor: not-allowed;
+  }
+}
+
+.main-btn:hover {
+  background-color: #08e208;
+}
+
+
+.product {
+  &:hover {
+    box-shadow: $shadow;
+    // border: solid 1px $main-color;
+
+    .add-btn {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  .add-btn {
+    transition: transform 1s, opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}

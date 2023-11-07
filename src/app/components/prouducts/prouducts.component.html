@@ -1,0 +1,30 @@
+<section id="products">
+  <div class="container">
+    <div class="products my-3">
+      <input [(ngModel)] ="searchTerm" class="form-control w-75 m-auto my-4" type="text" placeholder="Search">
+      <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4">
+        <div *ngFor="let product of products | search:searchTerm" class="col-md">
+          <div class="parent product p-2 cursor-pointer">
+            <div [routerLink]="['/product-detailes', product._id]" class="prod">
+              <div class="img-container">
+                <img class="w-100" [src]="product.imageCover" alt="product.title">
+              </div>
+              <div class="product-Info my-2">
+                <h6 class="category text-main">{{product.category.name}}</h6>
+                  <h5 class="title fw-bold">{{product.title | cutText}}</h5>
+                  <div class="card-price d-flex justify-content-between">
+                    <span class="fw-bold">{{product.price | currency:' EGP'}}</span>
+                    <span><i class="fa-solid fa-star rating-color"></i>{{product.ratingsAverage}}</span>
+                  </div>
+                </div>
+            </div>
+              <div class="d-flex align-items-center">
+                <button (click)="addProduct(product._id)" class="add-btn main-btn w-75 text-capitalize mt-2">+ add to card</button>
+                <span  class="ms-auto"><i class="fas fa-heart fs-4"></i></span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

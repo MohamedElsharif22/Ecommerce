@@ -1,0 +1,33 @@
+<section class="product-details" *ngIf="productDetails">
+  <div class="row justify-content-around align-items-center g-4">
+    <div class="col-md-4">
+      <div class="product-carousel">
+        <owl-carousel-o [options]="customOptions">
+
+          <ng-container *ngFor="let path of productDetails.images">
+            <ng-template carouselSlide>
+              <img class="w-100" [src]="path">
+            </ng-template>
+          </ng-container>
+      
+        </owl-carousel-o>
+        
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="product-info">
+        <h2 class="h5">{{productDetails.title}}</h2>
+        <p class="text-muted small">{{productDetails.description}}</p>
+        <span>{{productDetails.category.name}}</span>
+        <div class="d-flex justify-content-between">
+          <span>{{productDetails.price | currency:'EGP'}}</span>
+          <span>
+            <i class="fas fa-star rating-color"></i>
+            {{productDetails.ratingsAverage}}
+          </span>
+        </div>
+      </div>
+      <button (click)="addProduct(productDetails._id)"  class="main-btn w-100 text-capitalize mt-3">+ add to card</button>
+    </div>
+  </div>
+</section>

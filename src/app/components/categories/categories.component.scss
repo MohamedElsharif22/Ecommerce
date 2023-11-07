@@ -1,0 +1,17 @@
+
+.cat-img{
+  height: 300px;
+}
+.cat-info{
+  position: relative;
+  background-color: white;
+  z-index: 1;
+  transform: translateY(10%);
+}
+.img-fluid{
+  max-width: 100%;
+}
+.ratio-4x3 {
+  --bs-aspect-ratio: 75%;
+}
+

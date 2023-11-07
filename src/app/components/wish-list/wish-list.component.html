@@ -1,0 +1,28 @@
+  <section *ngIf=" wishes.length > 0;else emptyCart" id="cart" class="my-3" >
+    <div  class="main-container w-75 mx-auto rounded p-3 pb-0 shadow bg-main-light ">
+
+      <h2 class="h1 text-capitalize">shop wishes</h2>
+      <!-- Cart Items -->
+      <div class="parent" >
+        <div class="row border-bottom py-3 align-items-center justify-content-center gy-3" *ngFor="let item of wishes">
+          <div class="col-md-1">
+            <img [src]="item.imageCover" class="w-100" [alt]='item.title'/>
+          </div>
+          <div class="col-md-11 d-flex justify-content-between">
+            <div class="item-info">
+              <h3 class="h6 mt-2">{{item.title}}</h3>
+              <p class="text-main mb-0 pb-0">Price: {{item.price | currency:'EGP'}}</p>
+              <button type="button" (click)="removeProduct(item._id)" class="btn p-0 text-main"><i class="fas fa-trash me-1"></i>Remove</button>
+            </div>
+            <div class="item-count d-flex align-items-center">
+              <button type="button" (click)="addProduct(item._id)" class="btn border-success text-main p-2 small">add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #emptyCart>
+        <h2 class=" text-center mt-4">page is empty...</h2>
+      </ng-template>

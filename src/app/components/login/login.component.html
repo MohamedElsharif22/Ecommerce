@@ -1,0 +1,70 @@
+<section id="login">
+  <div class="container w-75">
+    <h2>Login</h2>
+    <form
+      class="d-flex flex-column"
+      [formGroup]="loginForm"
+      (ngSubmit)="handleForm()"
+    >
+      <div class="form-item mt-3">
+        <label class="mb-2 text-capitalize" for="email">email:</label>
+        <input
+          class="form-control"
+          formControlName="email"
+          id="email"
+          type="email"
+          placeholder="Enter Your email"
+        />
+        <div
+          class="alert alert-danger pb-0 mt-2"
+          *ngIf="
+            loginForm.get('email')?.touched && loginForm.get('email')?.errors
+          "
+        >
+          <p *ngIf="loginForm.get('email')?.getError('required')">
+            Must Enter Your email
+          </p>
+          <p *ngIf="loginForm.get('email')?.getError('email')">
+            enter a valid email
+          </p>
+        </div>
+      </div>
+      <div class="form-item mt-3">
+        <label class="mb-2 text-capitalize" for="password">password:</label>
+        <input
+          class="form-control"
+          formControlName="password"
+          id="password"
+          type="password"
+          placeholder="Enter Your password"
+        />
+        <div
+          class="alert alert-danger pb-0 mt-2"
+          *ngIf="
+            loginForm.get('password')?.touched &&
+            loginForm.get('password')?.errors
+          "
+        >
+          <p *ngIf="loginForm.get('password')?.getError('required')">
+            Must Enter Your password
+          </p>
+          <p *ngIf="loginForm.get('password')?.getError('pattern')">
+            enter a valid password
+          </p>
+        </div>
+      </div>
+      <button
+        [disabled]="loginForm.invalid"
+        class="main-btn mt-3 ms-auto"
+        type="submit"
+      >
+        login<span *ngIf="isLoading"
+          ><i class="fa-solid fa-spinner fa-spin ms-1"></i
+        ></span>
+      </button>
+      <div *ngIf="errMsg" class="alert alert-danger mt-4">
+        <p class="mb-0">{{ errMsg }}</p>
+      </div>
+    </form>
+  </div>
+</section>
