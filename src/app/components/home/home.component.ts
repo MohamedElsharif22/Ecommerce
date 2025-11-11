@@ -95,4 +95,33 @@ export class HomeComponent implements OnInit {
     },
     nav: true,
   };
+
+  heroOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: true,
+    dotsSpeed: 400,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplaySpeed: 1000,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 1,
+      },
+      740: {
+        items: 1,
+      },
+      940: {
+        items: 1,
+      },
+    },
+    nav: true,
+  };
 }

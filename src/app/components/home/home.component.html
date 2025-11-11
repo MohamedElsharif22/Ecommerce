@@ -1,4 +1,40 @@
 <section id="home">
+  <!-- Hero Section -->
+  <div class="hero-section mb-5">
+    <owl-carousel-o class="w-100" [options]="heroOptions">
+      <ng-template carouselSlide>
+        <img class="hero-image" src="assets/images/main-slider-1.jpeg" alt="FreshCart Banner 1" />
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h1 class="hero-title">Welcome to FreshCart</h1>
+            <p class="hero-subtitle">Discover Fresh Products at Best Prices</p>
+            <button [routerLink]="['/products']" class="main-btn hero-btn text-capitalize">Shop Now</button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <img class="hero-image" src="assets/images/main-slider-2.jpeg" alt="FreshCart Banner 2" />
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h1 class="hero-title">Quality Guaranteed</h1>
+            <p class="hero-subtitle">100% Authentic Products</p>
+            <button [routerLink]="['/products']" class="main-btn hero-btn text-capitalize">Shop Now</button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <img class="hero-image" src="assets/images/main-slider-3.jpeg" alt="FreshCart Banner 3" />
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h1 class="hero-title">Fast Delivery</h1>
+            <p class="hero-subtitle">Quick and Reliable Shipping</p>
+            <button [routerLink]="['/products']" class="main-btn hero-btn text-capitalize">Shop Now</button>
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+
   <div class="container">
     <div class="dynamic-carousel">
       <h3 class="text-capitalize fw-bold my-3">shop popular categories</h3>
