@@ -31,6 +31,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AllOrdersComponent } from './components/all-orders/all-orders.component';
 import { LoadingInterceptor } from './interceptor/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     SearchPipe,
     PaymentComponent,
     AllOrdersComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
